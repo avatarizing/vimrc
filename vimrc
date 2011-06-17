@@ -16,22 +16,25 @@ set bs=2		" allow backspacing over everything in insert mode
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
+set nu
 
 
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
 
 
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 
-syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
 if has("gui_running")	" GUI color and font settings
-  set guifont=Osaka-Mono:h20
+  set guifont=Consolas:h11
+  set guioptions-=T     "remove toolbar
+
+  language mes en
+  lang english
+  set langmenu=en_US.UTF-8
+
   set background=dark 
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
@@ -40,6 +43,11 @@ else
 " terminal color settings
   colors vgod
 endif
+
+syntax on		" syntax highlight
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
 
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
@@ -254,7 +262,9 @@ endfun
 fun! Big5()
 	set encoding=big5
 	set fileencoding=big5
+
 endfun
+
 
 
 "--------------------------------------------------------------------------- 
